@@ -45,7 +45,8 @@ Return a list of all users and the total number of tasks assigned to each.
 See [`totalTasksPerUser.sql`](totalTasksPerUser.sql)
 
 **Result:**
- ![Total Tasks Per User](https://github.com/ThaerHindawi/Task2-SQL/blob/main/totalTasksPerUser.png)
+
+![Total Tasks Per User](https://github.com/ThaerHindawi/Task2-SQL/blob/main/totalTasksPerUser.png)
 
 ---
 
@@ -68,7 +69,8 @@ For each user, calculate:
 See [`taskCompletionRate.sql`](taskCompletionRate.sql)
 
 **Result:**
- ![Task Completion Rate](https://github.com/ThaerHindawi/Task2-SQL/blob/main/taskCompletionRate.png)
+
+![Task Completion Rate](https://github.com/ThaerHindawi/Task2-SQL/blob/main/taskCompletionRate.png)
 
 ---
 
@@ -86,7 +88,8 @@ List the number of tasks created each day over the last 7 days, grouped by date.
 See [`tasksCreatedInTheLastSevenDays.sql`](tasksCreatedInTheLastSevenDays.sql)
 
 **Result:**
- ![Tasks Created in the Last 7 Days](https://github.com/ThaerHindawi/Task2-SQL/blob/main/tasksCreatedInTheLastSevenDays.png)
+
+![Tasks Created in the Last 7 Days](https://github.com/ThaerHindawi/Task2-SQL/blob/main/tasksCreatedInTheLastSevenDays.png)
 
 ---
 
@@ -105,7 +108,8 @@ Find the user who has completed the most tasks.
 See [`mostProductiveUser.sql`](mostProductiveUser.sql)
 
 **Result:**
- ![Tasks Created in the Last 7 Days](https://github.com/ThaerHindawi/Task2-SQL/blob/main/mostProductiveUser.png)
+
+![Tasks Created in the Last 7 Days](https://github.com/ThaerHindawi/Task2-SQL/blob/main/mostProductiveUser.png)
 
 ---
 
