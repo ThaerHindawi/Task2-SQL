@@ -44,6 +44,21 @@ Return a list of all users and the total number of tasks assigned to each.
 **SQL:**  
 See [`totalTasksPerUser.sql`](totalTasksPerUser.sql)
 
+**Solution:**
+
+```sql
+SELECT
+    users.id as user_id,
+    users.name as user_name,
+    COUNT(tasks.id) AS task_count
+FROM
+    task_manager.users as users
+    LEFT JOIN task_manager.tasks as tasks ON users.id = tasks.user_id
+GROUP BY
+    users.id,
+    users.name;
+```
+
 **Result:**
 
 ![Total Tasks Per User](https://github.com/ThaerHindawi/Task2-SQL/blob/main/totalTasksPerUser.png)
@@ -68,6 +83,27 @@ For each user, calculate:
 **SQL:**  
 See [`taskCompletionRate.sql`](taskCompletionRate.sql)
 
+**Solution:**
+
+```sql
+SELECT
+    users.id as user_id,
+    users.name as user_name,
+    COUNT(tasks.id) AS total_tasks,
+    SUM(
+        CASE
+            WHEN tasks.is_completed = 1 THEN 1
+            ELSE 0
+        END
+    ) AS completed_tasks
+FROM
+    task_manager.users as users
+    LEFT JOIN task_manager.tasks as tasks ON users.id = tasks.user_id
+GROUP BY
+    users.id,
+    users.name;
+```
+
 **Result:**
 
 ![Task Completion Rate](https://github.com/ThaerHindawi/Task2-SQL/blob/main/taskCompletionRate.png)
@@ -86,6 +122,20 @@ List the number of tasks created each day over the last 7 days, grouped by date.
 
 **SQL:**  
 See [`tasksCreatedInTheLastSevenDays.sql`](tasksCreatedInTheLastSevenDays.sql)
+
+**Solution:**
+
+```sql
+SELECT
+    DATE (created_at) AS 'date (YYYY-MM-DD)',
+    COUNT(id) AS task_count
+from
+    task_manager.tasks
+WHERE
+    created_at >= CURDATE () - INTERVAL 7 DAY
+GROUP BY
+    DATE (created_at);
+```
 
 **Result:**
 
@@ -106,6 +156,34 @@ Find the user who has completed the most tasks.
 
 **SQL:**  
 See [`mostProductiveUser.sql`](mostProductiveUser.sql)
+
+**Solution:**
+
+```sql
+SELECT
+    users.id as user_id,
+    users.name as user_name,
+    COUNT(tasks.id) AS completed_tasks
+FROM
+    task_manager.users as users
+    LEFT JOIN task_manager.tasks as tasks ON users.id = tasks.user_id
+WHERE
+    is_completed = true
+GROUP BY
+    users.id,
+    users.name
+HAVING
+    COUNT(tasks.id) >= ALL (
+        SELECT
+            COUNT(*)
+        FROM
+            task_manager.tasks
+        WHERE
+            is_completed = true
+        GROUP BY
+            user_id
+    );
+```
 
 **Result:**
 
