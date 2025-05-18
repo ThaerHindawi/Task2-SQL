@@ -4,7 +4,7 @@ SELECT
     COUNT(tasks.id) AS completed_tasks
 FROM
     task_manager.users as users
-    INNER JOIN task_manager.tasks as tasks ON users.id = tasks.user_id
+    LEFT JOIN task_manager.tasks as tasks ON users.id = tasks.user_id
 WHERE
     is_completed = true
 GROUP BY
