@@ -28,6 +28,18 @@ Write SQL queries to retrieve insights from a simple task-tracking database usin
 
 ---
 
+## 🛠️ Setup
+
+To set up the database and sample data, use [`setup.sql`](setup.sql).
+
+When you download the file setup.sql please run the following command:
+
+```bash
+mysql -u root -p < setup.sql
+```
+
+---
+
 ## 📋 Task Instructions & SQL Files
 
 ### 1. 🧮 Total Tasks Per User
@@ -188,18 +200,6 @@ HAVING
 **Result:**
 
 ![Tasks Created in the Last 7 Days](https://github.com/ThaerHindawi/Task2-SQL/blob/main/mostProductiveUser.png)
-
----
-
-## 🛠️ Setup
-
-To set up the database and sample data, use [`setup.sql`](setup.sql).
-
-When you download the file setup.sql please run the following command:
-
-```bash
-mysql -u root -p < setup.sql
-```
 
 ---
 
